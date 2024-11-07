@@ -27,19 +27,11 @@
 //   }
 // })
 
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
-let assetPrefix = '';
-let basePath = '';
-
-if (isGithubActions) {
-  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
-  // assetPrefix = `/${repo}/`;
-  // basePath = `/${repo}`;
-  assetPrefix= '/portfolio/';
-  basePath= "/portfolio";
-}
-
-module.exports = {
-  assetPrefix,
-  basePath,
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  basePath: "/portfolio",
+  output: "export",  // <=== enables static exports
+  reactStrictMode: true,
 };
+
+module.exports = nextConfig;
