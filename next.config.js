@@ -19,3 +19,12 @@ module.exports = withBundleAnalyzer({
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
   }
 })
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  basePath: "/portfolio",
+  output: "export",  // <=== enables static exports
+  reactStrictMode: true,
+};
+
+module.exports = nextConfig;
