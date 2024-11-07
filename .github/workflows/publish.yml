@@ -38,10 +38,9 @@ jobs:
       # - name: Export static files
       #   run: npm run export
 
-      - name: Upload artifact for deployment
-        uses: actions/upload-artifact@v3
+      - name: Upload artifact 📡
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
           path: ./out
 
   deploy:
