@@ -1,0 +1,12 @@
+name: surface-shoecare
+description: Welcome to Surface Shoe Care
+ignoreFiles: .git .next node_modules .husky .eslintrc.js yarn.lock package-lock.json
+modules:
+  - name: Surface-Shoecare-Web
+    language: nodejs18.x
+    web: nextjs
+    description: Surface Shoe Care with NextJS and Notion
+    functions:
+      - name: fn
+        entry: entry.js
+        description: Function
