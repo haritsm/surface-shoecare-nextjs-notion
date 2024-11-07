@@ -1,4 +1,4 @@
-import { type PageProps } from './types'
+import { PageProps } from './types'
 
 export async function pageAcl({
   site,

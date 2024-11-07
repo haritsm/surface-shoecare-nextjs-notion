@@ -1,8 +1,10 @@
+import * as React from 'react'
+
 import cs from 'classnames'
 
 import styles from './styles.module.css'
 
-export function LoadingIcon(props: any) {
+export const LoadingIcon = (props) => {
   const { className, ...rest } = props
   return (
     <svg

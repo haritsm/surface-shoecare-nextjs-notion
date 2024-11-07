@@ -1,45 +1,40 @@
-import { FaEnvelopeOpenText } from '@react-icons/all-files/fa/FaEnvelopeOpenText'
-import { FaGithub } from '@react-icons/all-files/fa/FaGithub'
-import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin'
-import { FaMastodon } from '@react-icons/all-files/fa/FaMastodon'
-import { FaTwitter } from '@react-icons/all-files/fa/FaTwitter'
-import { FaYoutube } from '@react-icons/all-files/fa/FaYoutube'
-import { FaZhihu } from '@react-icons/all-files/fa/FaZhihu'
-import { IoMoonSharp } from '@react-icons/all-files/io5/IoMoonSharp'
-import { IoSunnyOutline } from '@react-icons/all-files/io5/IoSunnyOutline'
 import * as React from 'react'
-
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faWhatsapp,faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons'
+// import { IoMoonSharp } from '@react-icons/all-files/io5/IoMoonSharp'
+// import { IoSunnyOutline } from '@react-icons/all-files/io5/IoSunnyOutline'
 import * as config from '@/lib/config'
-import { useDarkMode } from '@/lib/use-dark-mode'
+// import { useDarkMode } from '@/lib/use-dark-mode'
 
 import styles from './styles.module.css'
 
 // TODO: merge the data and icons from PageSocial with the social links in Footer
 
-export function FooterImpl() {
-  const [hasMounted, setHasMounted] = React.useState(false)
-  const { isDarkMode, toggleDarkMode } = useDarkMode()
-  const currentYear = new Date().getFullYear()
+export const FooterImpl: React.FC = () => {
+  // const [hasMounted, setHasMounted] = React.useState(false)
+  // const { isDarkMode, toggleDarkMode } = useDarkMode()
 
-  const onToggleDarkMode = React.useCallback(
-    (e) => {
-      e.preventDefault()
-      toggleDarkMode()
-    },
-    [toggleDarkMode]
-  )
+  // const onToggleDarkMode = React.useCallback(
+  //   (e) => {
+  //     e.preventDefault()
+  //     toggleDarkMode()
+  //   },
+  //   [toggleDarkMode]
+  // )
 
-  React.useEffect(() => {
-    setHasMounted(true)
-  }, [])
+  // React.useEffect(() => {
+  //   setHasMounted(true)
+  // }, [])
 
   return (
     <footer className={styles.footer}>
+
       <div className={styles.copyright}>
-        Copyright {currentYear} {config.author}
+        Copyright 2024 {config.author}. Created by <a href='https://www.linkedin.com/in/haritsmuhammad/'><u>Harits Muhammad</u></a>.
+        <br/>Template by <a href='https://github.com/transitive-bullshit/nextjs-notion-starter-kit'><u>transitive-bullshit</u></a>
       </div>
 
-      <div className={styles.settings}>
+      {/* <div className={styles.settings}>
         {hasMounted && (
           <a
             className={styles.toggleDarkMode}
@@ -51,92 +46,45 @@ export function FooterImpl() {
             {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
           </a>
         )}
-      </div>
+      </div> */}
 
-      <div className={styles.social}>
-        {config.twitter && (
+      {/* <div>
+        {config.whatsapp && (
           <a
-            className={styles.twitter}
-            href={`https://twitter.com/${config.twitter}`}
-            title={`Twitter @${config.twitter}`}
+            // className={styles.whatsapp}
+            href={`${config.instagram_main}`}
+            title={`WhatsappSurface Shoecare Admin`}
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaTwitter />
+            <FontAwesomeIcon icon={faWhatsapp} />
           </a>
         )}
 
-        {config.mastodon && (
+        {config.instagram_main && (
           <a
-            className={styles.mastodon}
-            href={config.mastodon}
-            title={`Mastodon ${config.getMastodonHandle()}`}
-            rel='me'
-          >
-            <FaMastodon />
-          </a>
-        )}
-
-        {config.zhihu && (
-          <a
-            className={styles.zhihu}
-            href={`https://zhihu.com/people/${config.zhihu}`}
-            title={`Zhihu @${config.zhihu}`}
+            // className={styles.instagram_main}
+            href={`https://instagram.com/${config.instagram_main}`}
+            title={`Instagram @${config.instagram_main}`}
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaZhihu />
+            <FontAwesomeIcon icon={faInstagram} />
           </a>
         )}
 
-        {config.github && (
+        {config.tiktok && (
           <a
-            className={styles.github}
-            href={`https://github.com/${config.github}`}
-            title={`GitHub @${config.github}`}
+            // className={styles.tiktok}
+            href={`https://www.tiktok.com/@${config.tiktok}`}
+            title={`Tiktok @${config.tiktok}`}
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaGithub />
+            <FontAwesomeIcon icon={faTiktok} />
           </a>
         )}
-
-        {config.linkedin && (
-          <a
-            className={styles.linkedin}
-            href={`https://www.linkedin.com/in/${config.linkedin}`}
-            title={`LinkedIn ${config.author}`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <FaLinkedin />
-          </a>
-        )}
-
-        {config.newsletter && (
-          <a
-            className={styles.newsletter}
-            href={`${config.newsletter}`}
-            title={`Newsletter ${config.author}`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <FaEnvelopeOpenText />
-          </a>
-        )}
-
-        {config.youtube && (
-          <a
-            className={styles.youtube}
-            href={`https://www.youtube.com/${config.youtube}`}
-            title={`YouTube ${config.author}`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <FaYoutube />
-          </a>
-        )}
-      </div>
+      </div> */}
     </footer>
   )
 }

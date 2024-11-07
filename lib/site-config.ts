@@ -1,4 +1,4 @@
-import type * as types from './types'
+import * as types from './types'
 
 export interface SiteConfig {
   rootNotionPageId: string
@@ -10,13 +10,16 @@ export interface SiteConfig {
   description?: string
   language?: string
 
+  whatsapp?: string
+  instagram_main?: string
+  tiktok?: string
   twitter?: string
   github?: string
   linkedin?: string
   newsletter?: string
   youtube?: string
   zhihu?: string
-  mastodon?: string
+  mastodon?: string;
 
   defaultPageIcon?: string | null
   defaultPageCover?: string | null

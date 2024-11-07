@@ -1,6 +1,8 @@
+import * as React from 'react'
+
 import styles from './styles.module.css'
 
-export function GitHubShareButton() {
+export const GitHubShareButton: React.FC = () => {
   return (
     <a
       href='https://github.com/transitive-bullshit/nextjs-notion-starter-kit'

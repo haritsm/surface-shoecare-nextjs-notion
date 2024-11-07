@@ -1,25 +1,26 @@
-import cs from 'classnames'
+import * as React from 'react'
 import dynamic from 'next/dynamic'
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { type PageBlock } from 'notion-types'
+
+import cs from 'classnames'
+import { PageBlock } from 'notion-types'
 import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
-import * as React from 'react'
 import BodyClassName from 'react-body-classname'
-import { type NotionComponents, NotionRenderer } from 'react-notion-x'
+import { NotionRenderer } from 'react-notion-x'
 import TweetEmbed from 'react-tweet-embed'
 import { useSearchParam } from 'react-use'
 
-import type * as types from '@/lib/types'
 import * as config from '@/lib/config'
+import * as types from '@/lib/types'
 import { mapImageUrl } from '@/lib/map-image-url'
 import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
 import { searchNotion } from '@/lib/search-notion'
 import { useDarkMode } from '@/lib/use-dark-mode'
 
 import { Footer } from './Footer'
-import { GitHubShareButton } from './GitHubShareButton'
+// import { GitHubShareButton } from './GitHubShareButton'
 import { Loading } from './Loading'
 import { NotionPageHeader } from './NotionPageHeader'
 import { Page404 } from './Page404'
@@ -96,7 +97,7 @@ const Modal = dynamic(
   }
 )
 
-function Tweet({ id }: { id: string }) {
+const Tweet = ({ id }: { id: string }) => {
   return <TweetEmbed tweetId={id} />
 }
 
@@ -141,18 +142,18 @@ const propertyTextValue = (
   return defaultFn()
 }
 
-export function NotionPage({
+export const NotionPage: React.FC<types.PageProps> = ({
   site,
   recordMap,
   error,
   pageId
-}: types.PageProps) {
+}) => {
   const router = useRouter()
   const lite = useSearchParam('lite')
 
-  const components = React.useMemo<Partial<NotionComponents>>(
+  const components = React.useMemo(
     () => ({
-      nextLegacyImage: Image,
+      nextImage: Image,
       nextLink: Link,
       Code,
       Collection,
@@ -211,13 +212,13 @@ export function NotionPage({
 
   const title = getBlockTitle(block, recordMap) || site.name
 
-  console.log('notion page', {
-    isDev: config.isDev,
-    title,
-    pageId,
-    rootNotionPageId: site.rootNotionPageId,
-    recordMap
-  })
+  // console.log('notion page', {
+  //   isDev: config.isDev,
+  //   title,
+  //   pageId,
+  //   rootNotionPageId: site.rootNotionPageId,
+  //   recordMap
+  // })
 
   if (!config.isServer) {
     // add important objects to the window global for easy debugging
@@ -280,7 +281,7 @@ export function NotionPage({
         footer={footer}
       />
 
-      <GitHubShareButton />
+      {/* <GitHubShareButton /> */}
     </>
   )
 }

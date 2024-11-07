@@ -1,4 +1,4 @@
-import { type ExtendedRecordMap } from 'notion-types'
+import { ExtendedRecordMap } from 'notion-types'
 import { parsePageId } from 'notion-utils'
 
 import * as acl from './acl'
@@ -82,7 +82,7 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
   } else {
     pageId = site.rootNotionPageId
 
-    console.log(site)
+    // console.log(site)
     recordMap = await getPage(pageId)
   }
 

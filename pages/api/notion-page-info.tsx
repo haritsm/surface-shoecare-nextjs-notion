@@ -1,6 +1,7 @@
-import ky from 'ky'
-import { type NextApiRequest, type NextApiResponse } from 'next'
-import { type PageBlock } from 'notion-types'
+import { NextApiRequest, NextApiResponse } from 'next'
+
+import got from 'got'
+import { PageBlock } from 'notion-types'
 import {
   getBlockIcon,
   getBlockTitle,
@@ -12,12 +13,9 @@ import {
 import * as libConfig from '@/lib/config'
 import { mapImageUrl } from '@/lib/map-image-url'
 import { notion } from '@/lib/notion-api'
-import { type NotionPageInfo } from '@/lib/types'
+import { NotionPageInfo } from '@/lib/types'
 
-export default async function notionPageInfo(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {
     return res.status(405).send({ error: 'method not allowed' })
   }
@@ -127,9 +125,9 @@ async function isUrlReachable(url: string | null): Promise<boolean> {
   }
 
   try {
-    await ky.head(url)
+    await got.head(url)
     return true
-  } catch {
+  } catch (err) {
     return false
   }
 }

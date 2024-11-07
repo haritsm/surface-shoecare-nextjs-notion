@@ -5,15 +5,15 @@
  * for optional depenencies.
  */
 import { parsePageId } from 'notion-utils'
-import { type PostHogConfig } from 'posthog-js'
+import { PostHogConfig } from 'posthog-js'
 
 import { getEnv, getSiteConfig } from './get-config-value'
-import { type NavigationLink } from './site-config'
+import { NavigationLink } from './site-config'
 import {
-  type NavigationStyle,
-  type PageUrlOverridesInverseMap,
-  type PageUrlOverridesMap,
-  type Site
+  NavigationStyle,
+  PageUrlOverridesInverseMap,
+  PageUrlOverridesMap,
+  Site
 } from './types'
 
 export const rootNotionPageId: string = parsePageId(
@@ -54,6 +54,9 @@ export const description: string = getSiteConfig('description', 'Notion Blog')
 export const language: string = getSiteConfig('language', 'en')
 
 // social accounts
+export const whatsapp: string | null = getSiteConfig('whatsapp', null)
+export const instagram_main: string | null = getSiteConfig('instagram_main', null)
+export const tiktok: string | null = getSiteConfig('tiktok', null)
 export const twitter: string | null = getSiteConfig('twitter', null)
 export const mastodon: string | null = getSiteConfig('mastodon', null)
 export const github: string | null = getSiteConfig('github', null)
@@ -110,7 +113,7 @@ export const navigationLinks: Array<NavigationLink | null> = getSiteConfig(
 )
 
 // Optional site search
-export const isSearchEnabled: boolean = getSiteConfig('isSearchEnabled', true)
+export const isSearchEnabled: boolean = getSiteConfig('isSearchEnabled', false)
 
 // ----------------------------------------------------------------------------
 

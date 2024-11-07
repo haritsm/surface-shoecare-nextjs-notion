@@ -72,6 +72,11 @@
   fill: var(--fg-color);
 }
 
+/* .instagram_main {
+  background: hsl(327, 97%, 37%);
+  border-color: hsl(327, 97%, 37%);
+} */
+
 .facebook .actionBgPane {
   background: #3b5998;
 }
@@ -101,10 +106,10 @@
 }
 
 .youtube .actionBgPane {
-  background: #ff0000;
+  background: #FF0000;
 }
 .youtube:hover {
-  border-color: #ff0000;
+  border-color: #FF0000;
 }
 
 .medium .actionBgPane {

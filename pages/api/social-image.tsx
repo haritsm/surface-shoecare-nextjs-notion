@@ -1,20 +1,21 @@
+import * as React from 'react'
+import { NextRequest } from 'next/server'
+
 import { ImageResponse } from '@vercel/og'
-import ky from 'ky'
-import { type NextRequest } from 'next/server'
 
 import { api, apiHost, rootNotionPageId } from '@/lib/config'
-import { type NotionPageInfo } from '@/lib/types'
+import { NotionPageInfo } from '@/lib/types'
 
-const interRegularFontP = ky(
+const interRegularFontP = fetch(
   new URL('../../public/fonts/Inter-Regular.ttf', import.meta.url)
-).arrayBuffer()
+).then((res) => res.arrayBuffer())
 
-const interBoldFontP = ky(
+const interBoldFontP = fetch(
   new URL('../../public/fonts/Inter-SemiBold.ttf', import.meta.url)
-).arrayBuffer()
+).then((res) => res.arrayBuffer())
 
 export const config = {
-  runtime: 'edge'
+  runtime: 'experimental-edge'
 }
 
 export default async function OGImage(req: NextRequest) {
@@ -35,7 +36,7 @@ export default async function OGImage(req: NextRequest) {
     return new Response(pageInfoRes.statusText, { status: pageInfoRes.status })
   }
   const pageInfo: NotionPageInfo = await pageInfoRes.json()
-  console.log(pageInfo)
+  // console.log(pageInfo)
 
   const [interRegularFont, interBoldFont] = await Promise.all([
     interRegularFontP,

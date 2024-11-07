@@ -52,13 +52,14 @@
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .copyright {
   font-size: 80%;
   padding: 0.5em;
+  text-align: center;
 }
 
 .settings,
@@ -82,12 +83,21 @@
 }
 
 .settings a:hover,
+
 .social a:hover {
   transition: color 50ms ease-out;
 }
 
 .toggleDarkMode:hover {
   color: #2795e9;
+}
+
+.instagram_main:hover {
+  color: hsl(216, 100%, 53%);
+}
+
+.tiktok:hover {
+  color: #c9510c;
 }
 
 .twitter:hover {
@@ -127,6 +137,9 @@
 @media only screen and (max-width: 566px) {
   .footer {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    align-content: center;
   }
 
   .footer > div {
@@ -141,6 +154,7 @@
   }
   .footer .copyright {
     order: 3;
+    align-content: center;
   }
 }
 

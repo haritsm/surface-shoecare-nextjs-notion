@@ -1,5 +1,6 @@
 import type { GetServerSideProps } from 'next'
-import { type ExtendedRecordMap } from 'notion-types'
+
+import { ExtendedRecordMap } from 'notion-types'
 import {
   getBlockParentPage,
   getBlockTitle,
@@ -66,8 +67,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     const date = lastUpdatedTime
       ? new Date(lastUpdatedTime)
       : publishedTime
-        ? new Date(publishedTime)
-        : undefined
+      ? new Date(publishedTime)
+      : undefined
     const socialImageUrl = getSocialImageUrl(pageId)
 
     feed.item({
@@ -97,6 +98,4 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   return { props: {} }
 }
 
-export default function noop() {
-  return null
-}
+export default () => null

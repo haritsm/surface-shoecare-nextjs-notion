@@ -1,5 +1,6 @@
-import { IconContext } from '@react-icons/all-files'
+import * as React from 'react'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
+import { IconContext } from '@react-icons/all-files'
 
 export default class MyDocument extends Document {
   render() {
@@ -7,6 +8,23 @@ export default class MyDocument extends Document {
       <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
         <Html lang='en'>
           <Head>
+            {/* Global Site Tag (gtag.js) - Google Analytics */}
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=G-#`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-#', {
+                page_path: window.location.pathname,
+              });
+            `,}}
+            />
+
             <link rel='shortcut icon' href='/favicon.ico' />
             <link
               rel='icon'
