@@ -28,10 +28,9 @@ export const FooterImpl: React.FC = () => {
 
   return (
     <footer className={styles.footer}>
-
       <div className={styles.copyright}>
-        Copyright 2024 {config.author}. Created by <a href='https://www.linkedin.com/in/haritsmuhammad/'><u>Harits Muhammad</u></a>.
-        <br/>Template by <a href='https://github.com/transitive-bullshit/nextjs-notion-starter-kit'><u>transitive-bullshit</u></a>
+        2024 {config.author}
+        <br/>Created by <a href='https://www.linkedin.com/in/haritsmuhammad/'><u>Harits Muhammad</u></a>. Template by <a href='https://github.com/transitive-bullshit/nextjs-notion-starter-kit'><u>transitive-bullshit</u></a>
       </div>
 
       {/* <div className={styles.settings}>

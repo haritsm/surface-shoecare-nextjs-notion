@@ -10,7 +10,7 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'Surface Shoe Care',
-  domain: 'localhost:3000',
+  domain: 'https://czf7.egoq.lyr.id/',
   author: 'Surface Shoe Care',
 
   // open graph metadata (optional)
