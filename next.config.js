@@ -1,6 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true'
+  enabled: process.env.ANALYZE === 'true',
+  basePath: "/portfolio",
+  output: "export",  // <=== enables static exports
+  reactStrictMode: true,
 })
 
 module.exports = withBundleAnalyzer({
@@ -20,11 +23,11 @@ module.exports = withBundleAnalyzer({
   }
 })
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  basePath: "/portfolio",
-  output: "export",  // <=== enables static exports
-  reactStrictMode: true,
-};
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   basePath: "/portfolio",
+//   output: "export",  // <=== enables static exports
+//   reactStrictMode: true,
+// };
 
-module.exports = nextConfig;
+// module.exports = nextConfig;
