@@ -4,6 +4,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   basePath: "/portfolio",
   output: "export",  // <=== enables static exports
   reactStrictMode: true,
+  images: {
+    unoptimized: true, // This is necessary for GitHub Pages, as Next.js optimized images won't work with static exports
+  },
 })
 
 module.exports = withBundleAnalyzer({
