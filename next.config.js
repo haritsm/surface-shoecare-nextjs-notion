@@ -27,15 +27,17 @@
 //   }
 // })
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  assetPrefix: '/portfolio/',
-  basePath: "/portfolio",
-  output: "export",  // <=== enables static exports
-  reactStrictMode: true,
-  images: {
-    unoptimized: true, // This is necessary for GitHub Pages, as Next.js optimized images won't work with static exports
-  },
-};
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
+let assetPrefix = '';
+let basePath = '';
 
-module.exports = nextConfig;
+if (isGithubActions) {
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
+  assetPrefix = `/${repo}/`;
+  basePath = `/${repo}`;
+}
+
+module.exports = {
+  assetPrefix,
+  basePath,
+};
